@@ -1,0 +1,31 @@
+@html.extend('admin_layout', function(model) {
+  @html.block('content', function(model) {
+                <form class="nevao_card_shadow"  style="padding:1vw 1vw;" action="/settings" method="POST">
+                    <div class="flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">نام کامل رییس آرامستان ملایر</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                    name="AramestanManager" placeholder=".لطفا نام  را وارد کنید" type="text" value="@(model.setting.AramestanManager)" style="text-align: right;"/>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">نام حساب بانکی آرامستان</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right" name="AramestanBankAccount" placeholder=".لطفا نام حساب را وارد کنید" type="text" value="@(model.setting.AramestanBankAccount)"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw;width:25%">
+                        <input type="submit" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer" value="ثبت" style="border:none"/>
+                    </div>
+            </form>
+      <span id="pageIdentifire" title="settings"></span>
+      @{model.user.Password = ''}
+      <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+  })
+})

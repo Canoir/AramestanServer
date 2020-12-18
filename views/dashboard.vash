@@ -1,0 +1,111 @@
+@html.extend('admin_layout', function(model) {
+  @html.block('content', function(model) {
+                <div class="flex-grow-parent" style="justify-content: stretch">
+                    <div style="flex-grow: 1;">
+                        <div class="nevao_card_shadow"
+                            style="display: flex;align-items: center;flex-direction: column;padding: 2vw;margin-right: 2vw;background-color: white">
+                            <div class="default_border"
+                                style="border-color:rgb(182,32,224);width: 7vw;height: 7vw;margin-bottom: 2vw;border-radius: 8px;display: flex;justify-content: center;align-items: center">
+                                <svg version="1.1" fill="rgb(182,32,224)" style="width: 24px;height: 24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                            <div style="margin-bottom: 1vw;font-size: 90%"><b>کل فوت شده ها</b></div>
+                            <div style="margin-bottom: 4vw;font-size: 80%">کلا <span id="AllCount"></span> فوتی تایید شده</div>
+                            <div class="secondary_text_color" style="font-size: 70%">کلا <span id="AllCounted"></span> فوتی تایید نشده</div>
+                        </div>
+                    </div>
+                    <div style="flex-grow: 1;">
+                        <div class="nevao_card_shadow"
+                            style="display: flex;align-items: center;flex-direction: column;padding: 2vw;margin-right: 2vw;background-color: white">
+                            <div class="default_border"
+                                style="border-color:rgb(24,212,154);width: 7vw;height: 7vw;margin-bottom: 2vw;border-radius: 8px;display: flex;justify-content: center;align-items: center">
+                                <svg version="1.1" fill="rgb(24,212,154)" style="width: 24px;height: 24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                            <div style="margin-bottom: 1vw;font-size: 90%"><b>کل فوت شده های ماه</b></div>
+                            <div style="margin-bottom: 4vw;font-size: 80%">کلا <span id="MonthCount">...</span> فوتی تایید شده</div>
+                            <div class="secondary_text_color" style="font-size: 70%">کلا <span id="MonthCounted">...</span> فوتی تایید نشده</div>
+                        </div>
+                    </div>
+                    <div style="flex-grow: 1;">
+                        <div class="nevao_card_shadow"
+                            style="display: flex;align-items: center;flex-direction: column;padding: 2vw;margin-right: 2vw;background-color: white">
+                            <div class="default_border"
+                                style="border-color:rgb(18,165,255);width: 7vw;height: 7vw;margin-bottom: 2vw;border-radius: 8px;display: flex;justify-content: center;align-items: center">
+                                <svg version="1.1" fill="rgb(18,165,255)" style="width: 24px;height: 24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                            <div style="margin-bottom: 1vw;font-size: 90%"><b>کل فوت شده های هفته</b></div>
+                            <div style="margin-bottom: 4vw;font-size: 80%">کلا <span id="WeekCount">...</span> فوتی تایید شده</div>
+                            <div class="secondary_text_color" style="font-size: 70%">کلا <span id="WeekCounted">...</span> فوتی تایید نشده</div>
+                        </div>
+                    </div>
+                    <div style="flex-grow: 1;">
+                        <div class="nevao_card_shadow"
+                            style="display: flex;align-items: center;flex-direction: column;padding: 2vw;background-color: white">
+                            <div class="default_border"
+                                style="border-color:rgb(243,70,98);width: 7vw;height: 7vw;margin-bottom: 2vw;border-radius: 8px;display: flex;justify-content: center;align-items: center">
+                                <svg version="1.1" fill="rgb(243,70,98)" style="width: 24px;height: 24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                            <div style="margin-bottom: 1vw;font-size: 90%"><b>کل فوت شده های روز</b></div>
+                            <div style="margin-bottom: 4vw;font-size: 80%">کلا <span id="DayCount">...</span> فوتی تایید شده</div>
+                            <div class="secondary_text_color" style="font-size: 70%">کلا <span id="DayCounted">...</span> فوتی تایید نشده</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nevao_card_shadow" style="height: auto;margin-top: 2vw;background-color: white">
+                            <div style="margin:0 2vw;flex-direction:row-reverse;padding-top:2vw" class="flex-grow-parent">
+                                <div style="text-align: end;font-size: 150%;flex-grow:1;display: flex;justify-content: flex-end;align-items:center"><b>فوتی ها</b></div>
+                                <div style="text-align: end;font-size: 150%;flex-grow:1;display: flex;justify-content: flex-start;font-size:66%;align-items:center;"></div>
+                            </div>
+
+                            <div id="deads_table_headers_parent_id" class="default_border_bottom flex-grow-parent" style="flex-direction:row-reverse">
+                                <div style="width:20%">کد فوتی</div>
+                                <div style="width:25%">نام و نام خانوادگی</div>
+                                <div style="width:25%">تاریخ فوت</div>
+                                <div style="width:25%;">نام پدر</div>
+                                <div style="width:5%">عملیات</div>
+                            </div>
+                        @model.Deads.forEach(function(item){
+                            <div id="deads_table_items_parent_id" class="default_border_bottom flex-grow-parent" style="flex-direction:row-reverse">
+                                <div style="width:20%; font-weight: bolder;" class="toPersian">@(item.NationalId)</div>
+                                <div style="width:25%">@(item.FullName)</div>
+                                <div style="width:25%;overflow: hidden;white-space: nowrap;" class="toPersian"><b>@(item.deathDate)</b></div>
+                                <div style="width:25%;overflow: hidden;white-space: nowrap;">@(item.FatherName)</div>
+                                <div style="width:5%">
+                                    <a href="/deads/details/@(item.NationalId)">
+                                        <img class="cursor-pointer" src="/icons/ic_back_icon.svg" alt="back" style="width:14px; height: 14px;">
+                                    </a>
+                                </div>
+                            </div>
+                        })
+                </div>
+
+                <span id="pageIdentifire" title="dash"></span>
+                @{model.user.Password = ''}
+                <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  })
+})

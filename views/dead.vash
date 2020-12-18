@@ -1,0 +1,101 @@
+@html.extend('admin_layout', function(model) {
+     @html.block('content', function(model) {
+    <div class="nevao_card_shadow" style="background:white">
+        <div class="dead_details">
+                <div class="dead_details_content">
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.FullName</div>
+                        <div>نام کامل</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.FatherName</div>
+                        <div>نام پدر</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div><b class="toPersian">@model.Dead.deathDate</b></div>
+                        <div>تاریخ فوت</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div><b class="toPersian">@model.Dead.birthDate</b></div>
+                        <div>تاریخ تولد</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@(model.Dead.DeadType)</div>
+                        <div>نوع فوتی</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div><b class="toPersian">@(model.Dead.State)</b></div>
+                        <div>قطعه</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@(model.Dead.Row)</div>
+                        <div>ردیف</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@model.Dead.GravePlaceId</div>
+                        <div>شماره قطعه</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@model.Dead.NationalId</div>
+                        <div>کد ملی</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@model.Dead.intermentDate</div>
+                        <div>تاریخ دفن</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@(model.Dead.incomeDate)</div>
+                        <div>تاریخ واریز</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.DoctorName</div>
+                        <div>نام دکتر</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@model.Dead.IntermentPermitNumber</div>
+                        <div>شماره جواز دفن</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.DeathPlace</div>
+                        <div>محل فوت</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.FollowerName</div>
+                        <div>نام کامل پیگیری کننده</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div class="toPersian">@model.Dead.FollowerNationalId</div>
+                        <div>کد ملی پیگیری کننده</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.FollowerRelToDeadPerson</div>
+                        <div>نسبت پیگیری کننده با فوتی</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div><b class="toPersian toPrice">@model.Dead.TotalCosts</b></div>
+                        <div>مجموع هزینه ها(ریال)</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div>@model.Dead.Details</div>
+                        <div>توضیحات</div>
+                    </div>
+                    <div class="dead_details_content_cell">
+                        <div><b>@(model.Dead.Accepted ? 'تایید شده' : 'تایید نشده')</b></div>
+                        <div>وضعیت</div>
+                    </div>
+                    <div class="dead_details_content_cell" style="overflow:auto;text-align:right;padding-top:8px">
+                        <div>@(model.Dead.DeathReason == "" ? "-":model.Dead.DeathReason)</div>
+                        <div>علت فوت</div>
+                    </div>
+                </div>
+                <div class="dead_details_picture">
+                @{var z = model.Dead.ImageName == "" ? "grave.jpg" : model.Dead.ImageName}
+                    <img src='/images/@(z)' alt="تصویر قبر">
+                </div>
+        </div>
+    </div>
+    <span id="pageIdentifire" title="dead"></span>
+    @{model.user.Password = ''}
+    <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+    })
+})

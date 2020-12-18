@@ -1,0 +1,39 @@
+@html.extend('layout', function(model){
+    @html.block('content', function(model) {
+        <h3>@model.m</h3>
+        <form class="login_body_attrs body_color" action="/login" method="POST" id="form">
+            <div class="body_login_card_parent nevao_card_shadow flex-grow-parent">
+                <div class="body_login_card_title_parent default_border_bottom">
+                    <div class="body_login_card_title_text primary_text_color"><b>ورود به داشبورد</b></div>
+                </div>
+                <div class="body_login_card_body_parent flex-grow-parent">
+                    <div class="flex-grow-3"></div>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام کاربری</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                name="username" id="username" placeholder=".لطفا نام کاربری خود را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input2_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">رمزعبور</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                               name="password" id="password" placeholder=".لطفا رمز عبور خود را وارد کنید" type="password"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent">
+                        <input type="submit" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer" style="border:none" value="ورود"/>
+                    </div>
+                </div>
+                <div class="body_login_card_footer_parent body_login_card_footer_color default_border_top">
+                    <div class="body_login_card_footer_title">به پنل مدیریت تخلفات خوش آمدید</div>
+                </div>
+            </div>
+        </form>
+    })
+})

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>لاگین</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="header_attrs nevao_title_shadow flex-grow-parent">
+    <div class="header_login_button">
+        <div class="default_border header_login_button_child">
+            <div class="header_login_button_child_icon ic_user_profile"></div>
+            <div class="header_login_button_child_text primary_text_color">ورود به پنل</div>
+        </div>
+    </div>
+    <div class="flex-grow-6"></div>
+    <div class="header_title_parent">
+        <div class="header_title_text cursor-pointer primary_text_color"><b>شهرداری ملایر</b></div>
+    </div>
+</div>
+@html.block('content')
+<div class="footer_attrs nevao_title_shadow flex-grow-parent">
+    <div class="footer_copyright_text_parent">
+        <div class="footer_copyright_text secondary_text_color">
+            مارا در شبکه های اجتماعی دنبال کنید
+        </div>
+    </div>
+    <div class="flex-grow-6"></div>
+    <div class="footer_socialmedia_text_parent secondary_text_color">
+        <div class="footer_socialmedia_text cursor-pointer">!کلیه حقوق طراحی و ساخت این وب سایت به شهرداری ملایر
+            تعلق دارد
+        </div>
+    </div>
+</div>
+</body>
+</html>

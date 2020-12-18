@@ -1,0 +1,61 @@
+
+  @html.block('content', function(model) {
+    <link href="/css/style.css" rel="stylesheet">
+    <style>
+        html, body {
+        height: 100%;
+        margin: 0px;
+      }
+      .holder{
+        border:1px solid blue;
+        padding:8px;
+        margin: 16px;
+      }
+      .holder .v{
+        font-size:20px
+      }
+      .holder .strok{
+        border-bottom: 1px dashed black;
+      }
+      .holder .v3{
+        margin-right:32px;
+      }
+    </style>
+      <div class="holder">
+        <center>بسمه تعالی</center>
+        <div dir="rtl"><b class="v">وزارت کشور</b></div>
+        <div>............................. :شماره</div>
+        <div dir="rtl"><b class="v2">شهرداری ملایر</b></div>
+        <div class="toPersian">@model.today :تاریخ</div>
+        <br>
+        <div>............................. :پیوست</div>
+        <br>
+        <div class="strok"></div>
+        <br>
+        <div class="v" dir="rtl">به: <b>ریاست محترم اداره ثبت احوال</b></div>
+        <br>
+        <div class="v" dir="rtl">از: <b>شهرداری ملایر</b></div>
+        <br>
+        <div class="v" dir="rtl">موضوع: گواهی فوت</div>
+        <div class="v3 toPersian" dir="rtl">
+        احتراما برادر / خواهر @model.death.FullName با کد ملی : @model.death.NationalId
+        <br>
+        فرزند : @model.death.FatherName بموجب جواز دفن : @model.death.DeathReason در تاریخ : @model.death.DeathsDate   
+        <br>
+به علت : @model.death.DeathReason در شهرستان : ملایر فوت نموده
+        <br>
+و در تاریخ : @model.death.IntermentsDate در این آرامستان به خاك سپرده شده است
+        <br>
+        </div>
+        <br>
+        <center>مسئول آرامستان بهشت هاجر ملایر</center>
+        <br>
+        <center>@model.setting.AramestanManager</center>
+        <br>
+
+      </div>
+      <span id="pageIdentifire" title="death_report"></span>
+      <script src="/js/script.js"></script>
+      
+    <script>window.onload = admin_layout</script>
+  })

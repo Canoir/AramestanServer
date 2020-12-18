@@ -1,0 +1,46 @@
+@html.extend('admin_layout', function(model) {
+  @html.block('content', function(model) {
+      <div class="nevao_card_shadow" style="padding:1vw 1vw;">
+      <div style="display:flex" dir="rtl">
+            <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                <div class="body_login_card_body_inputX_title_parent" style="justify-content:flex-start">
+                    <div class="body_login_card_body_inputX_title primary_text_color">کد ملی متوفی</div>
+                </div>
+                <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                    <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                        name="nI" id="nI" placeholder=".لطفا کد ملی متوفی را وارد کنید" type="text"/>
+                </div>
+            </div>
+            <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                <div id="edit_profile_form_submit" class="body_login_card_body_button1_parent flex-grow-parent" style="width:25%;">
+                    <div id="statement_add_submit" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer" style="align-self: flex-end !important;">
+                        ثبت
+                    </div>
+                </div>
+            </div>
+        </div>
+      <br>
+      <pre id="deadData" style="margin: 0.85vh 2vw;" dir="rtl"></pre>
+      <br>
+      <div dir="rtl"  style="margin: 0.85vh 2vw;display:none" id="statements_add_form_holder">
+        <form  action="/statements/addPic" method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="statements_add_nI_hidden" name="nI"/>
+            <div style="display:flex" dir="rtl">
+                <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%;align-items:center">
+                    <input type="file" name="image" id="statements_add_pic"  accept="image/*"/>
+                </div>
+                <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="width:50%;">
+                        <input type="submit" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer" style="align-self: flex-end !important;border:none" value="آپلود اعلامیه"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+      </div>
+    <span id="pageIdentifire" title="statements_add"></span>
+    @{model.user.Password = ''}
+    <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  })
+})

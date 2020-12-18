@@ -1,0 +1,59 @@
+@html.extend('admin_layout', function(model) {
+     @html.block('content', function(model) {
+    <div class="nevao_card_shadow" style="padding-top:2vw;background:white">
+        <div style="margin:0 2vw;flex-direction:row-reverse" class="flex-grow-parent">
+            <div style="text-align: end;font-size: 150%;flex-grow:1;display: flex;justify-content: flex-end;align-items:center"><b>فوتی ها</b></div>
+            <div style="text-align: end;font-size: 150%;flex-grow:4;display: flex;justify-content: flex-end;align-items:center"><form method="get" action="/deads" style="position:relative;width:100%"><input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right;width:100%" placeholder="جست و جو" id="q" name="q"/><button type="submit" style="cursor:pointer;position:absolute;top:30%;left:7%;background:transparent;border:none;"><svg version="1.1" width="18px" height="18px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 192.904 192.904" style="enable-background:new 0 0 192.904 192.904;" xml:space="preserve"><path d="M190.707,180.101l-47.078-47.077c11.702-14.072,18.752-32.142,18.752-51.831C162.381,36.423,125.959,0,81.191,0 C36.422,0,0,36.423,0,81.193c0,44.767,36.422,81.187,81.191,81.187c19.688,0,37.759-7.049,51.831-18.751l47.079,47.078 c1.464,1.465,3.384,2.197,5.303,2.197c1.919,0,3.839-0.732,5.304-2.197C193.637,187.778,193.637,183.03,190.707,180.101z M15,81.193 C15,44.694,44.693,15,81.191,15c36.497,0,66.189,29.694,66.189,66.193c0,36.496-29.692,66.187-66.189,66.187 C44.693,147.38,15,117.689,15,81.193z"/><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></button></form></div>
+            <div style="text-align: end;font-size: 150%;flex-grow:1;display: flex;justify-content: flex-start;font-size:66%;align-items:center;"><a href="/deads/add" id="add">اضافه کردن</a></div>
+        </div>
+
+        <div id="deads_table_headers_parent_id" class="default_border_bottom flex-grow-parent" style="flex-direction:row-reverse">
+            <div style="width:8%">کد فوتی</div>
+            <div style="width:18%">نام و نام خانوادگی</div>
+            <div style="width:18%">تاریخ فوت</div>
+            <div style="width:18%;">نام پدر</div>
+            <div style="width:38%">عملیات</div>
+        </div>
+            @model.Deads.forEach(function(item){
+                            <div id="deads_table_items_parent_id" class="default_border_bottom flex-grow-parent" style="flex-direction:row-reverse">
+                                <div style="width:8%; font-weight: bolder;" class="toPersian">@(item.NationalId)</div>
+                                <div style="width:18%">@(item.FullName)</div>
+                                <div style="width:18%;overflow: hidden;white-space: nowrap;"><b class="toPersian">@(item.deathDate)</b></div>
+                                <div style="width:18%;overflow: hidden;white-space: nowrap;">@(item.FatherName)</div>
+                                <div style="width:38%">
+                                <div class="users_table_item_edit_button"><div class="cursor-pointer" style="background-color:rgb(183 24 212 / 10%);height: 2.5vw;border-radius: 64px;width: 5vw;font-size:85%;display:flex;justify-content:center;align-items:center"><a style="color:rgb(157 24 212)" href="/reports/death-report/?nI=@(item.NationalId)">جواز</a></div></div>
+                                    <div class="users_table_item_edit_button"><div class="cursor-pointer" style="background-color:rgb(24 73 212 / 10%);height: 2.5vw;border-radius: 64px;width: 5vw;font-size:85%;display:flex;justify-content:center;align-items:center"><a style="color:rgb(24 82 212)" href="/reports/preview/?nI=@(item.NationalId)">گزارش</a></div></div>
+                                    <div class="users_table_item_edit_button"><div class="cursor-pointer" style="background-color:rgb(24,212,154,0.1);height: 2.5vw;border-radius: 64px;width: 5vw;font-size:85%;display:flex;justify-content:center;align-items:center"><a style="color:rgb(24,212,154)" href="/deads/details/@(item.NationalId)">جزییات</a></div></div>
+                                    <div class="users_table_item_edit_button"><div class="cursor-pointer" style="background-color:rgb(253,247,232);height: 2.5vw;border-radius: 64px;width: 5vw;color:rgb(249,172,64) !important;font-size:85%;display:flex;justify-content:center;align-items:center"><a style="color:rgb(249,172,64)" href="/deads/edit/@(item.NationalId)">ویرایش</a></div></div>
+                                    <div id="@(item._id)" class="users_table_item_remove_button"><div class="cursor-pointer" style="background-color:rgb(252,241,243);height: 2.5vw;border-radius: 64px;width: 5vw;color:rgb(220,58,84);font-size:85%;display:flex;justify-content:center;align-items:center">حذف</div></div>
+                                </div>
+                            </div>
+                        })
+        <div id="deads_pager_parent">
+            <div>
+                <div class="deads_pager_changer_button default_border cursor-pointer" id="nextPage">
+                    <img src="/icons/ic_back_icon.svg" alt="back" style="width:8px; height: 8px;">
+                    <p>صفحه بعدی </p>
+                </div>
+                <div id="deads_pager" class="default_border" style="width:auto;padding:8px;font-size:12px">
+                    <a id="pagerOnClick" href="#" style="font-size:12px">برو</a>
+                    <input id="pager" type="number" min="1" max="@(model.max)" value="@(model.index)" style="border:none;border-bottom:1px solid black;margin:12px"/>
+                     به صفحه
+                </div>
+                <div class="deads_pager_changer_button default_border cursor-pointer" id="lastPage">
+                    <p style="text-align:right">صفحه قبلی </p>
+                    <img src="/icons/ic_next_icon.svg" alt="back" style="width:7px; height: 7px;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <span id="pageIdentifire" title="deads"></span>
+    @{model.user.Password = ''}
+    <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+    <form id="user_remove_item_form" method="POST" action="/deads/remove" style="visibility:hidden">
+            <input type="text" style="visibility:hidden" id="user_remove_item_id" name="user_remove_item_id"/>
+      </form>
+
+    })
+})

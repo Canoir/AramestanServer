@@ -1,0 +1,303 @@
+
+  @html.block('content', function(model) {
+    <link href="/css/style.css" rel="stylesheet">
+    <style>
+        html, body {
+        height: 100%;
+        margin: 0px;
+      }
+      #notfPC td{
+        border: 2px solid #4F7849;
+      }
+      #notfPC tr:nth-child(2n){
+        background-color: #4F784922;
+      }
+      #notfPC th, #notfPC td{
+        border: solid 1px Blue;
+        width: 100px;
+      }
+      #notfPC td{
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+        font-weight: 100;
+        color: #4F7849;
+      }
+      .fPC{
+        border: 8px double gray; 
+        font-weight:bold;
+        border-radius:8px;
+        padding:8px;
+      }
+      .fPC > .title {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      .fPC > .title > div{
+        border: 1px solid black;
+        padding: 16px;
+        border-radius:8px;
+      }
+      .fPC > .table > table{
+        width:100%;
+        margin-top:8px;
+      	border-collapse: collapse;
+      }
+      .fPC > .table td{
+        padding:8px;
+        font-size:12px;
+        font-weight:bold;
+      }
+      .fPC > .table td > span{
+        font-weight:400;
+      }
+    </style>
+    @if(model.role != 3){
+      @if(!model.fPC){
+        @if(model.role <= 2){
+          <div style="width:96%;margin:0 auto;" id="notfPC">
+            <img src="http://behesht.shahrdarimalayer.ir/images/Png/logo3.png" style="align-items:center;width:60px;height:60px;display:block;text-align:center;margin:0 auto;">
+            <center style="font-size:16px;font-weight:bold">قبض درآمدی بابت هزینه تطهیر و دفن از تاریخ : <span class="toPersian">@model.startDate</span> تا تاریخ : <span class="toPersian">@model.endDate</span> آرامستان بهشت هاجر ملایر</center>
+            <br>
+            <table style="border: 2px solid #4F7849;width: 100%;text-align: center;border-collapse: collapse;">
+            @if(model.type == 2){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ فوت</th>
+                  <th>هزینه نهایی</th>
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.DeathDates)</td>
+                  <td class="toPrice toPersian">@(el.TotalCosts)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }else if(model.type == 1){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ دفن</th>
+                  <th>هزینه نهایی</th>
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.IntermentDates)</td>
+                  <td class="toPrice toPersian">@(el.TotalCosts)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }else if(model.type == 3){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ واریز</th>
+                  <th>هزینه نهایی</th>
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.IncomeDates)</td>
+                  <td class="toPrice toPersian">@(el.TotalCosts)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }
+            </table>
+            <br>
+            <hr>
+          
+            تعداد کل متوفیان : <span class="toPersian">@model.len</span>
+            <br>
+            هزینه کل متوفیان : <span class="toPrice toPersian">@model.tC</span>
+
+            </div>
+        }else{
+          <div style="width:96%;margin:0 auto;" id="notfPC">
+            <img src="http://behesht.shahrdarimalayer.ir/images/Png/logo3.png" style="align-items:center;width:60px;height:60px;display:block;text-align:center;margin:0 auto;">
+            <center style="font-size:16px;font-weight:bold">قبض تطهیر و دفن از تاریخ : <span class="toPersian">@model.startDate</span> تا تاریخ : <span class="toPersian">@model.endDate</span> آرامستان بهشت هاجر ملایر</center>
+            <br>
+            <table style="border: 2px solid #4F7849;width: 100%;text-align: center;border-collapse: collapse;">
+            @if(model.type == 2){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ فوت</th>
+                  
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.DeathDates)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }else if(model.type == 1){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ دفن</th>
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.IntermentDates)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }else if(model.type == 3){
+              <tr>
+                  <th>خدمات</th>
+                  <th>تاریخ واریز</th>
+                  <th>نام و نام خانوادگی</th>
+              </tr>
+              @model.deads.forEach((el)=>{
+                <tr>
+                  <td>@{el.Cost.forEach((e)=>{<span>,@(e.Name)</span>})}</td>
+                  <td class="toPersian">@(el.IncomeDates)</td>
+                  <td>@(el.FullName)</td>
+                </tr>
+              })
+            }
+            </table>
+            <br>
+            <hr>
+          
+            تعداد کل متوفیان : <span class="toPersian">@model.len</span>
+            <br>
+
+            </div>
+        }
+      }else{
+        @if(model.role <= 2){
+          @model.deads.forEach((el)=>{
+            <div class="fPCHolder">
+              <div class="fPC" dir="rtl">
+                تاریخ دریافت رسید : <span class="toPersian">@model.today</span>
+                <div class="title">
+                  <div>نسخه ارباب رجوع</div>
+                </div>
+                <div class="table">
+                  <table>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی متوفی: <span>@(el.FullName)</span></td>
+                      <td>تاریخ فوت: <span class="toPersian">@(el.DeathDates)</span></td>
+                      <td colspan="2">کد ملی متوفی: <span class="toPersian">@(el.NationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">خدمات: @{el.Cost.forEach((e)=>{<span> , @(e.Name)</span>})}</td>
+                      <td colspan="3">هزینه نهایی <span class="toPrice toPersian">@(el.TotalCosts)</span> ریال نزد @(model.setting.AramestanBankAccount)</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">ردیف: <span class="toPersian">@(el.Row)</span></td>
+                      <td>قطعه: <span class="toPersian">@(el.StatesId)</span></td>
+                      <td colspan="2">شماره قبر: <span class="toPersian">@(el.GravePlaceId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی همراه: <span>@(el.FollowerName)</span></td>
+                      <td>نسبت همراه با متوفی: <span>@(el.FollowerRelToDeadPerson)</span></td>
+                      <td colspan="2">کد ملی همراه: <span class="toPersian">@(el.FollowerNationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">شماره تماس همراه متوفی: <span>@(el.FollowerPhoneNumber)</span></td>
+                      <td>سریال تراکنش:</td>
+                      <td colspan="2" dir="ltr">محل مهر و امضا</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <br>
+              <div class="fPC" dir="rtl">
+                <div class="title">
+                  <div>مسئول دفن</div>
+                </div>
+                <div class="table">
+                  <table>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی متوفی: <span>@(el.FullName)</span></td>
+                      <td>تاریخ فوت: <span class="toPersian">@(el.DeathDates)</span></td>
+                      <td colspan="2">کد ملی متوفی: <span class="toPersian">@(el.NationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">خدمات: @{el.Cost.forEach((e)=>{<span> , @(e.Name)</span>})}</td>
+                      <td colspan="3">هزینه نهایی <span class="toPrice toPersian">@(el.TotalCosts)</span> ریال نزد بانک ملی به نام آرامستان بهشت هاجر</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">ردیف: <span class="toPersian">@(el.Row)</span></td>
+                      <td>قطعه: <span class="toPersian">@(el.StatesId)</span></td>
+                      <td colspan="2">شماره قبر: <span class="toPersian">@(el.GravePlaceId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی همراه: <span>@(el.FollowerName)</span></td>
+                      <td>نسبت همراه با متوفی: <span>@(el.FollowerRelToDeadPerson)</span></td>
+                      <td colspan="2">کد ملی همراه: <span class="toPersian">@(el.FollowerNationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">شماره تماس همراه متوفی: <span>@(el.FollowerPhoneNumber)</span></td>
+                      <td>سریال تراکنش:</td>
+                      <td colspan="2" dir="ltr">محل مهر و امضا</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <br>
+              <div class="fPC" dir="rtl">
+                <div class="title">
+                  <div>نسخه کاربر</div>
+                </div>
+                <div class="table">
+                  <table>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی متوفی: <span>@(el.FullName)</span></td>
+                      <td>تاریخ فوت: <span class="toPersian">@(el.DeathDates)</span></td>
+                      <td colspan="2">کد ملی متوفی: <span class="toPersian">@(el.NationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">خدمات: @{el.Cost.forEach((e)=>{<span> , @(e.Name)</span>})}</td>
+                      <td colspan="3">هزینه نهایی <span class="toPrice toPersian">@(el.TotalCosts)</span> ریال نزد بانک ملی به نام آرامستان بهشت هاجر</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">ردیف: <span class="toPersian">@(el.Row)</span></td>
+                      <td>قطعه: <span class="toPersian">@(el.StatesId)</span></td>
+                      <td colspan="2">شماره قبر: <span class="toPersian">@(el.GravePlaceId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">نام و نام خانوادگی همراه: <span>@(el.FollowerName)</span></td>
+                      <td>نسبت همراه با متوفی: <span>@(el.FollowerRelToDeadPerson)</span></td>
+                      <td colspan="2">کد ملی همراه: <span class="toPersian">@(el.FollowerNationalId)</span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">شماره تماس همراه متوفی: <span>@(el.FollowerPhoneNumber)</span></td>
+                      <td>سریال تراکنش:</td>
+                      <td colspan="2" dir="ltr">محل مهر و امضا</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <br/>
+              <br/>
+              <hr>
+              <br/>
+              <hr>
+              <br/>
+              <br/>
+            </div>
+          })
+        }
+      }
+    }
+      <span id="pageIdentifire" title="reports_preview"></span>
+      <script src="/js/script.js"></script>
+      
+<script>window.onload = admin_layout</script>
+  })

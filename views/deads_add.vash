@@ -1,0 +1,156 @@
+@html.extend('admin_layout', function(model) {
+  @html.block('content', function(model) { 
+            <style>
+                input{
+                    text-align:right !important;
+                }
+            </style>
+                <form id="deads_add_form" class="nevao_card_shadow"  style="padding:1vw 1vw;background-color:white" action="/deads/add" method="POST">
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">نام کامل</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                    name="fullName" id="fullName" placeholder=".لطفا نام کامل را وارد کنید" type="text"/>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">نام پدر</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right" 
+                                name="fatherName" id="fatherName" placeholder=".لطفا نام پدر را وارد کنید" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">کد ملی</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                    name="nationalCode" id="nationalCode" placeholder=".لطفا کد ملی را وارد کنید" type="text"/>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">شماره قبر</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right" 
+                                name="graveStateId" id="graveStateId" placeholder=".لطفا شماره قبر را وارد کنید" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">انتخاب قطعه</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <select class="body_login_card_body_inputX_input default_border secondary_text_color" dir="rtl" 
+                                name="stateId" id="stateId">
+                                    @model.States.forEach(function(item){
+                                        <option value="@(item.StateId)">@(item.Name)</option>
+                                    })
+                                </select>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">نوع فوتی</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <select class="body_login_card_body_inputX_input default_border secondary_text_color" dir="rtl"
+                                 name="deathType" id="deathType">
+                                    @model.DeadTypes.forEach(function(item){
+                                        <option value="@(item.DeadTypeId)">@(item.Name)</option>
+                                    })
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">تاریخ تولد</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color birthDate"
+                                     placeholder=".لطفا تاریخ تولد را وارد کنید" type="text"/>
+                                 <input class="birthDateAlt" name="birthDate" id="birthDate" type="hidden" />
+
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">تاریخ فوت</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color deathDate" style="text-align:right"
+                                placeholder=".لطفا شماره تاریخ فوت را وارد کنید" type="text"/>
+                                 <input class="deathDateAlt" name="deathDate" id="deathDate" type="hidden"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">ردیف</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                    name="row" id="row" placeholder=".لطفا ردیف قبر را وارد کنید" type="text"/>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">دلیل فوت</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right"
+                                 name="deathReason" id="deathReason" placeholder="لطفا دلیل را وارد کنید(اختیاری)" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="edit_profile_form_submit" class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw;width:20%;display:inline-block">
+                        <div id="popup_content_1_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت
+                        </div>
+                    </div>
+                    <input type="hidden" value="0" name="dirType" id="dirType"/>
+                    <div id="edit_profile_form_submit" class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw;width:20%;display:inline-block">
+                        <div id="popup_content_2_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت اطلاعات بیشتر
+                        </div>
+                    </div>
+            </form>
+        <link rel="stylesheet" href="/css/persian-datepicker.min.css"/>
+        <script src="/js/jquery-3.5.1.min.js"></script> 
+        <script src="/js/persian-date.min.js"></script> 
+        <script src="/js/persian-datepicker.min.js"></script>
+        <span id="pageIdentifire" title="deads_add"></span>
+        @{model.user.Password = ''}
+        <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".birthDate").persianDatepicker({
+                        observer: true,
+                        format: 'YYYY/MM/DD',
+                        altField: '.birthDateAlt',
+                        autoClose:true,
+                });
+                $(".deathDate").persianDatepicker({
+                        observer: true,
+                        format: 'YYYY/MM/DD',
+                        altField: '.deathDateAlt',
+                        autoClose:true,
+                });
+            });
+        </script> 
+  })
+})

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>لاگین</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="header_attrs nevao_title_shadow flex-grow-parent">
+    <div class="header_login_button">
+        <div class="default_border header_login_button_child">
+            <div class="header_login_button_child_icon ic_user_profile"></div>
+            <div id="header_login_button" class="header_login_button_child_text primary_text_color">ورود به پنل</div>
+        </div>
+    </div>
+    <div class="flex-grow-6"></div>
+    <div class="header_title_parent">
+        <div class="header_title_text cursor-pointer primary_text_color"><b>شهرداری ملایر</b></div>
+    </div>
+</div>
+    <div class="dashboard_body_attrs body_color">
+        <div class="flex-grow-parent">
+            <div style="width:77%;margin: 1vw;flex-direction: column;">
+              @html.block('content')
+            </div>
+            <div id="admin_layout_right_panel_parent" style="width:23%;margin: 1vw;background-color: white;height: fit-content;">
+                <div class="nevao_card_shadow flex-grow-parent" style="flex-direction: column">
+                    <div class="default_border_bottom" style="flex-grow: 1;padding: 1.5vw">
+                        <div class="flex-grow-parent" style="height: 100%">
+                            <div class="flex-grow-parent"
+                                style="align-self: center;flex-grow: 16;flex-direction: column;height: 100%;margin-right: 2vh">
+                                <div style="flex-grow: 1;text-align: end;font-size: 90%;display: flex;justify-content: flex-end;align-items: flex-end">
+                                    <b id="body_dashboard_panel_little_name">مهدی</b></div>
+                                <div id="body_dashboard_panel_roleId" style="flex-grow: 1;text-align: end;font-size: 80%;display: flex;justify-content: flex-end;align-items: flex-start">
+                                    دسترسی : مدیر کل
+                                </div>
+                            </div>
+                            <div style="flex-grow: 1;display: flex;justify-content: flex-end;align-items: center">
+                                <div class="alert_text_color"
+                                    style="width: 50px;height: 50px;background-color: #fee9ec;border-radius: 50%;display: flex;justify-content: center;align-items: center">
+                                    <svg fill="#f34662" style="width: 20px;height: 20px" viewBox="-42 0 512 512.001"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m210.351562 246.632812c33.882813 0 63.21875-12.152343 87.195313-36.128906 23.96875-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.128906 87.195312 23.980469 23.96875 53.316406 36.125 87.191406 36.125zm-65.972656-189.292968c18.394532-18.394532 39.972656-27.335938 65.972656-27.335938 25.996094 0 47.578126 8.941406 65.976563 27.335938 18.394531 18.398437 27.339844 39.980468 27.339844 65.972656 0 26-8.945313 47.578125-27.339844 65.976562-18.398437 18.398438-39.980469 27.339844-65.976563 27.339844-25.992187 0-47.570312-8.945312-65.972656-27.339844-18.398437-18.394531-27.34375-39.976562-27.34375-65.976562 0-25.992188 8.945313-47.574219 27.34375-65.972656zm0 0"/>
+                                        <path d="m426.128906 393.703125c-.691406-9.976563-2.089844-20.859375-4.148437-32.351563-2.078125-11.578124-4.753907-22.523437-7.957031-32.527343-3.3125-10.339844-7.808594-20.550781-13.375-30.335938-5.769532-10.15625-12.550782-19-20.160157-26.277343-7.957031-7.613282-17.699219-13.734376-28.964843-18.199219-11.226563-4.441407-23.667969-6.691407-36.976563-6.691407-5.226563 0-10.28125 2.144532-20.042969 8.5-6.007812 3.917969-13.035156 8.449219-20.878906 13.460938-6.707031 4.273438-15.792969 8.277344-27.015625 11.902344-10.949219 3.542968-22.066406 5.339844-33.042969 5.339844-10.96875 0-22.085937-1.796876-33.042968-5.339844-11.210938-3.621094-20.300782-7.625-26.996094-11.898438-7.769532-4.964844-14.800782-9.496094-20.898438-13.46875-9.753906-6.355468-14.808594-8.5-20.035156-8.5-13.3125 0-25.75 2.253906-36.972656 6.699219-11.257813 4.457031-21.003906 10.578125-28.96875 18.199219-7.609375 7.28125-14.390625 16.121094-20.15625 26.273437-5.558594 9.785157-10.058594 19.992188-13.371094 30.339844-3.199219 10.003906-5.875 20.945313-7.953125 32.523437-2.0625 11.476563-3.457031 22.363282-4.148437 32.363282-.679688 9.777344-1.023438 19.953125-1.023438 30.234375 0 26.726562 8.496094 48.363281 25.25 64.320312 16.546875 15.746094 38.4375 23.730469 65.066406 23.730469h246.53125c26.621094 0 48.511719-7.984375 65.0625-23.730469 16.757813-15.945312 25.253906-37.589843 25.253906-64.324219-.003906-10.316406-.351562-20.492187-1.035156-30.242187zm-44.90625 72.828125c-10.933594 10.40625-25.449218 15.464844-44.378906 15.464844h-246.527344c-18.933594 0-33.449218-5.058594-44.378906-15.460938-10.722656-10.207031-15.933594-24.140625-15.933594-42.585937 0-9.59375.316406-19.066407.949219-28.160157.617187-8.921874 1.878906-18.722656 3.75-29.136718 1.847656-10.285156 4.199219-19.9375 6.996094-28.675782 2.683593-8.378906 6.34375-16.675781 10.882812-24.667968 4.332031-7.617188 9.316407-14.152344 14.816407-19.417969 5.144531-4.925781 11.628906-8.957031 19.269531-11.980469 7.066406-2.796875 15.007812-4.328125 23.628906-4.558594 1.050781.558594 2.921875 1.625 5.953125 3.601563 6.167969 4.019531 13.277344 8.605469 21.136719 13.625 8.859375 5.648437 20.273437 10.75 33.910156 15.152344 13.941406 4.507812 28.160156 6.796875 42.273437 6.796875 14.113282 0 28.335938-2.289063 42.269532-6.792969 13.648437-4.410156 25.058594-9.507813 33.929687-15.164063 8.042969-5.140624 14.953125-9.59375 21.121094-13.617187 3.03125-1.972656 4.902344-3.042969 5.953125-3.601563 8.625.230469 16.566406 1.761719 23.636719 4.558594 7.636719 3.023438 14.121093 7.058594 19.265625 11.980469 5.5 5.261719 10.484375 11.796875 14.816406 19.421875 4.542969 7.988281 8.207031 16.289062 10.886719 24.660156 2.800781 8.75 5.15625 18.398438 7 28.675782 1.867187 10.433593 3.132812 20.238281 3.75 29.144531v.007812c.636719 9.058594.957031 18.527344.960937 28.148438-.003906 18.449219-5.214844 32.378906-15.9375 42.582031zm0 0"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dashboard_items_parent" style="flex-grow: 60;padding: 1.5vw">
+                        <div id="dashboard_item1" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div
+                                style="color:#757575;width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                داشبورد
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                            <svg version="1.1" style="width: 14px;height: 14px" fill="#757575" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 viewBox="0 0 456.098 456.098"  xml:space="preserve"><path d="M305.11,398.89h-61.649v-79.412h-31.347v79.412h-61.649c-8.882,0-15.673,6.792-15.673,15.673	s6.792,15.673,15.673,15.673H305.11c8.882,0,15.673-6.792,15.673-15.673S313.992,398.89,305.11,398.89z"/><path d="M419.527,335.151H36.571C16.196,335.151,0,318.955,0,298.58V62.433	c0-20.376,16.196-36.571,36.571-36.571h382.955c20.376,0,36.571,16.196,36.571,36.571V298.58	C456.098,318.955,439.902,335.151,419.527,335.151z M36.571,57.208c-2.612,0-5.224,2.612-5.224,5.224V298.58	c0,2.612,2.612,5.224,5.224,5.224h382.955c2.612,0,5.224-2.612,5.224-5.224V62.433c0-2.612-2.612-5.224-5.224-5.224H36.571z"/><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                            </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item2" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                فوتی ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg version="1.1" fill="#757575" style="width: 14px;height: 14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                        </div>
+                         <div id="dashboard_item6" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                قطعه ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg version="1.1" fill="#757575" style="width: 14px;height: 14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item7" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                نوع فوتی ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg version="1.1" fill="#757575" style="width: 14px;height: 14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item8" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                هزینه ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg version="1.1" fill="#757575" style="width: 14px;height: 14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"><g><g><path d="M503.839,395.379l-195.7-338.962C297.257,37.569,277.766,26.315,256,26.315c-21.765,0-41.257,11.254-52.139,30.102
+                                    L8.162,395.378c-10.883,18.85-10.883,41.356,0,60.205c10.883,18.849,30.373,30.102,52.139,30.102h391.398
+                                    c21.765,0,41.256-11.254,52.14-30.101C514.722,436.734,514.722,414.228,503.839,395.379z M477.861,440.586
+                                    c-5.461,9.458-15.241,15.104-26.162,15.104H60.301c-10.922,0-20.702-5.646-26.162-15.104c-5.46-9.458-5.46-20.75,0-30.208
+                                    L229.84,71.416c5.46-9.458,15.24-15.104,26.161-15.104c10.92,0,20.701,5.646,26.161,15.104l195.7,338.962
+                                    C483.321,419.836,483.321,431.128,477.861,440.586z"/></g></g><g><g><rect x="241.001" y="176.01" width="29.996" height="149.982"/></g></g><g><g><path d="M256,355.99c-11.027,0-19.998,8.971-19.998,19.998s8.971,19.998,19.998,19.998c11.026,0,19.998-8.971,19.998-19.998S267.027,355.99,256,355.99z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item3" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                کارمند ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" viewBox="-42 0 512 512.001"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m210.351562 246.632812c33.882813 0 63.21875-12.152343 87.195313-36.128906 23.96875-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.128906 87.195312 23.980469 23.96875 53.316406 36.125 87.191406 36.125zm-65.972656-189.292968c18.394532-18.394532 39.972656-27.335938 65.972656-27.335938 25.996094 0 47.578126 8.941406 65.976563 27.335938 18.394531 18.398437 27.339844 39.980468 27.339844 65.972656 0 26-8.945313 47.578125-27.339844 65.976562-18.398437 18.398438-39.980469 27.339844-65.976563 27.339844-25.992187 0-47.570312-8.945312-65.972656-27.339844-18.398437-18.394531-27.34375-39.976562-27.34375-65.976562 0-25.992188 8.945313-47.574219 27.34375-65.972656zm0 0"/>
+                                    <path d="m426.128906 393.703125c-.691406-9.976563-2.089844-20.859375-4.148437-32.351563-2.078125-11.578124-4.753907-22.523437-7.957031-32.527343-3.3125-10.339844-7.808594-20.550781-13.375-30.335938-5.769532-10.15625-12.550782-19-20.160157-26.277343-7.957031-7.613282-17.699219-13.734376-28.964843-18.199219-11.226563-4.441407-23.667969-6.691407-36.976563-6.691407-5.226563 0-10.28125 2.144532-20.042969 8.5-6.007812 3.917969-13.035156 8.449219-20.878906 13.460938-6.707031 4.273438-15.792969 8.277344-27.015625 11.902344-10.949219 3.542968-22.066406 5.339844-33.042969 5.339844-10.96875 0-22.085937-1.796876-33.042968-5.339844-11.210938-3.621094-20.300782-7.625-26.996094-11.898438-7.769532-4.964844-14.800782-9.496094-20.898438-13.46875-9.753906-6.355468-14.808594-8.5-20.035156-8.5-13.3125 0-25.75 2.253906-36.972656 6.699219-11.257813 4.457031-21.003906 10.578125-28.96875 18.199219-7.609375 7.28125-14.390625 16.121094-20.15625 26.273437-5.558594 9.785157-10.058594 19.992188-13.371094 30.339844-3.199219 10.003906-5.875 20.945313-7.953125 32.523437-2.0625 11.476563-3.457031 22.363282-4.148437 32.363282-.679688 9.777344-1.023438 19.953125-1.023438 30.234375 0 26.726562 8.496094 48.363281 25.25 64.320312 16.546875 15.746094 38.4375 23.730469 65.066406 23.730469h246.53125c26.621094 0 48.511719-7.984375 65.0625-23.730469 16.757813-15.945312 25.253906-37.589843 25.253906-64.324219-.003906-10.316406-.351562-20.492187-1.035156-30.242187zm-44.90625 72.828125c-10.933594 10.40625-25.449218 15.464844-44.378906 15.464844h-246.527344c-18.933594 0-33.449218-5.058594-44.378906-15.460938-10.722656-10.207031-15.933594-24.140625-15.933594-42.585937 0-9.59375.316406-19.066407.949219-28.160157.617187-8.921874 1.878906-18.722656 3.75-29.136718 1.847656-10.285156 4.199219-19.9375 6.996094-28.675782 2.683593-8.378906 6.34375-16.675781 10.882812-24.667968 4.332031-7.617188 9.316407-14.152344 14.816407-19.417969 5.144531-4.925781 11.628906-8.957031 19.269531-11.980469 7.066406-2.796875 15.007812-4.328125 23.628906-4.558594 1.050781.558594 2.921875 1.625 5.953125 3.601563 6.167969 4.019531 13.277344 8.605469 21.136719 13.625 8.859375 5.648437 20.273437 10.75 33.910156 15.152344 13.941406 4.507812 28.160156 6.796875 42.273437 6.796875 14.113282 0 28.335938-2.289063 42.269532-6.792969 13.648437-4.410156 25.058594-9.507813 33.929687-15.164063 8.042969-5.140624 14.953125-9.59375 21.121094-13.617187 3.03125-1.972656 4.902344-3.042969 5.953125-3.601563 8.625.230469 16.566406 1.761719 23.636719 4.558594 7.636719 3.023438 14.121093 7.058594 19.265625 11.980469 5.5 5.261719 10.484375 11.796875 14.816406 19.421875 4.542969 7.988281 8.207031 16.289062 10.886719 24.660156 2.800781 8.75 5.15625 18.398438 7 28.675782 1.867187 10.433593 3.132812 20.238281 3.75 29.144531v.007812c.636719 9.058594.957031 18.527344.960937 28.148438-.003906 18.449219-5.214844 32.378906-15.9375 42.582031zm0 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item4" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                ویرایش پروفایل
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" viewBox="0 -1 401.52289 401" xmlns="http://www.w3.org/2000/svg"><path d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0"/><path d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item9" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                گزارش گیری
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" viewBox="0 -1 401.52289 401" xmlns="http://www.w3.org/2000/svg"><path d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0"/><path d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item10" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                اعلامیه ها
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" viewBox="0 -1 401.52289 401" xmlns="http://www.w3.org/2000/svg"><path d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0"/><path d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item11" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                تنظیمات
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" viewBox="0 -1 401.52289 401" xmlns="http://www.w3.org/2000/svg"><path d="m370.589844 250.972656c-5.523438 0-10 4.476563-10 10v88.789063c-.019532 16.5625-13.4375 29.984375-30 30h-280.589844c-16.5625-.015625-29.980469-13.4375-30-30v-260.589844c.019531-16.558594 13.4375-29.980469 30-30h88.789062c5.523438 0 10-4.476563 10-10 0-5.519531-4.476562-10-10-10h-88.789062c-27.601562.03125-49.96875 22.398437-50 50v260.59375c.03125 27.601563 22.398438 49.96875 50 50h280.589844c27.601562-.03125 49.96875-22.398437 50-50v-88.792969c0-5.523437-4.476563-10-10-10zm0 0"/><path d="m376.628906 13.441406c-17.574218-17.574218-46.066406-17.574218-63.640625 0l-178.40625 178.40625c-1.222656 1.222656-2.105469 2.738282-2.566406 4.402344l-23.460937 84.699219c-.964844 3.472656.015624 7.191406 2.5625 9.742187 2.550781 2.546875 6.269531 3.527344 9.742187 2.566406l84.699219-23.464843c1.664062-.460938 3.179687-1.34375 4.402344-2.566407l178.402343-178.410156c17.546875-17.585937 17.546875-46.054687 0-63.640625zm-220.257812 184.90625 146.011718-146.015625 47.089844 47.089844-146.015625 146.015625zm-9.40625 18.875 37.621094 37.625-52.039063 14.417969zm227.257812-142.546875-10.605468 10.605469-47.09375-47.09375 10.609374-10.605469c9.761719-9.761719 25.589844-9.761719 35.351563 0l11.738281 11.734375c9.746094 9.773438 9.746094 25.589844 0 35.359375zm0 0"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="dashboard_item5" class="flex-grow-parent cursor-pointer"
+                            style="margin-top: 2vh;border-radius: 32px;padding: 8px;margin-bottom: 2vh">
+                            <div class="secondary_text_color"
+                                style="width:80%;display: flex;justify-content: flex-end;font-size: 70%;align-items: center;margin-right: 1.5vh;height: 100%">
+                                خروج از حساب کاربری
+                            </div>
+                            <div style="width:20%;display: flex;justify-content: flex-start;align-items: center;margin-left: 1.5vh;height: 100%">
+                                <svg fill="#757575" style="width: 14px;height: 14px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><g><path d="M330.667,384c-5.896,0-10.667,4.771-10.667,10.667v74.667c0,11.76-9.573,21.333-21.333,21.333h-256				c-11.76,0-21.333-9.573-21.333-21.333V42.667c0-11.76,9.573-21.333,21.333-21.333h256c11.76,0,21.333,9.573,21.333,21.333v74.667				c0,5.896,4.771,10.667,10.667,10.667c5.896,0,10.667-4.771,10.667-10.667V42.667C341.333,19.135,322.198,0,298.667,0h-256				C19.135,0,0,19.135,0,42.667v426.667C0,492.865,19.135,512,42.667,512h256c23.531,0,42.667-19.135,42.667-42.667v-74.667				C341.333,388.771,336.563,384,330.667,384z"/>			<path d="M508.542,248.135l-128-117.333c-4.365-3.979-11.083-3.677-15.073,0.656c-3.979,4.344-3.688,11.094,0.656,15.073				l107.79,98.802H138.667c-5.896,0-10.667,4.771-10.667,10.667s4.771,10.667,10.667,10.667h335.249l-107.79,98.802				c-4.344,3.979-4.635,10.729-0.656,15.073c2.104,2.292,4.979,3.458,7.865,3.458c2.573,0,5.156-0.927,7.208-2.802l128-117.333				C510.75,261.844,512,258.99,512,256S510.75,250.156,508.542,248.135z"/>		</g>	</g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="footer_attrs nevao_title_shadow flex-grow-parent">
+    <div class="footer_copyright_text_parent">
+        <div class="footer_copyright_text secondary_text_color">
+            مارا در شبکه های اجتماعی دنبال کنید
+        </div>
+    </div>
+    <div class="flex-grow-6"></div>
+    <div class="footer_socialmedia_text_parent secondary_text_color">
+        <div class="footer_socialmedia_text cursor-pointer">!کلیه حقوق طراحی و ساخت این وب سایت به شهرداری ملایر
+            تعلق دارد
+        </div>
+    </div>
+</div>
+<div id="popup" style="visibility:hidden;opacity:0;position:fixed;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;bottom:0;right:0">
+    <div id="popup_content_1" class="nevao_card_shadow" style="background:white;width:30%;padding:2vw;visibility:hidden;opacity:0">
+        <div style="text-align:center;font-size:130%"><b id="popup_content_1_title1">اضافه کردن کاربر</b></div>
+            <form class="nevao_card_shadow"  style="padding:1vw 0;margin-top:1vw" id="popup_content_1_form1" action="/users/add" method="POST">
+                    <input type="text" style="visibility:hidden" id="popup_content_1_HID" name="popup_content_1_HID"/>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام کاربری</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                name="username" id="username" placeholder=".لطفا نام کاربری را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent" style="margin-top:1vw"> 
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام و نام خانوادگی</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right" name="name" id="name" placeholder=".لطفا نام و نام خانوادگی خود را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input2_parent flex-grow-parent" style="margin-top:1vw">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">رمزعبور</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                               name="password" id="password" placeholder=".لطفا رمز عبور خود را وارد کنید" type="password"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input2_parent flex-grow-parent" style="margin-top:1vw">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">سطح دسترسی</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <select class="body_login_card_body_inputX_input default_border secondary_text_color" name="roleId" id="roleId" type="password">
+                                <option value="1">مدیر کل</option>
+                                <option value="2">پشتیبان</option>
+                                <option value="3">چاپخانه</option>
+                                <option value="4">ثبت احوال</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw">
+                        <div id="popup_content_1_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="opacity:0.5;">
+                        <div id="popup_content_1_btn2" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            انصراف
+                        </div>
+                    </div>
+            </form>
+    </div>
+</div>
+<div id="popup2" style="visibility:hidden;opacity:0;position:fixed;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;bottom:0;right:0">
+    <div id="popup_content_2" class="nevao_card_shadow" style="background:white;width:30%;padding:2vw;visibility:hidden;opacity:0">
+        <div style="text-align:center;font-size:130%"><b id="popup_content_2_title1">اضافه کردن قطعه</b></div>
+            <form class="nevao_card_shadow"  style="padding:1vw 0;margin-top:1vw" id="popup_content_2_form1" action="/states/add" method="POST">
+                    <input type="text" style="visibility:hidden" id="popup_content_2_HID" name="popup_content_2_HID"/>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام قطعه</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                name="name" id="name2" placeholder=".لطفا نام قطعه را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent" style="margin-top:1vw"> 
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">تعداد ردیف</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color" style="text-align:right" name="rows" id="rows" placeholder=".لطفا تعداد ردیف ها را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input2_parent flex-grow-parent" style="margin-top:1vw">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">تعداد قبور</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                               name="count" id="count" placeholder=".لطفا تعداد قبور را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw">
+                        <div id="popup_content_2_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="opacity:0.5;">
+                        <div id="popup_content_2_btn2" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            انصراف
+                        </div>
+                    </div>
+            </form>
+    </div>
+</div>
+<div id="popup3" style="visibility:hidden;opacity:0;position:fixed;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;bottom:0;right:0">
+    <div id="popup_content_3" class="nevao_card_shadow" style="background:white;width:30%;padding:2vw;visibility:hidden;opacity:0">
+        <div style="text-align:center;font-size:130%"><b id="popup_content_3_title1">اضافه کردن نوع فوتی</b></div>
+            <form class="nevao_card_shadow"  style="padding:1vw 0;margin-top:1vw" id="popup_content_3_form1" action="/deadtypes/add" method="POST">
+                    <input type="text" style="visibility:hidden" id="popup_content_3_HID" name="popup_content_3_HID"/>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام نوع فوتی</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                name="name" id="name3" placeholder=".لطفا نام نوع فوتی را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw">
+                        <div id="popup_content_3_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="opacity:0.5;">
+                        <div id="popup_content_3_btn2" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            انصراف
+                        </div>
+                    </div>
+            </form>
+    </div>
+</div>
+<div id="popup4" style="visibility:hidden;opacity:0;position:fixed;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;bottom:0;right:0">
+    <div id="popup_content_4" class="nevao_card_shadow" style="background:white;width:30%;padding:2vw;visibility:hidden;opacity:0">
+        <div style="text-align:center;font-size:130%"><b id="popup_content_4_title1">اضافه کردن هزینه</b></div>
+            <form class="nevao_card_shadow"  style="padding:1vw 0;margin-top:1vw" id="popup_content_4_form1" action="/costs/add" method="POST">
+                    <input type="text" style="visibility:hidden" id="popup_content_4_HID" name="popup_content_4_HID"/>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">نام هزینه</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                name="name" id="name4" placeholder=".لطفا نام هزینه را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_input1_parent flex-grow-parent">
+                        <div class="body_login_card_body_inputX_title_parent">
+                            <div class="body_login_card_body_inputX_title primary_text_color">هزینه</div>
+                        </div>
+                        <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                            <input class="body_login_card_body_inputX_input default_border secondary_text_color onInputPrice"
+                                name="price" id="price" placeholder=".لطفا هزینه را وارد کنید" type="text"/>
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw">
+                        <div id="popup_content_4_btn1" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            ثبت
+                        </div>
+                    </div>
+                    <div class="body_login_card_body_button1_parent flex-grow-parent" style="opacity:0.5;">
+                        <div id="popup_content_4_btn2" class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer">
+                            انصراف
+                        </div>
+                    </div>
+            </form>
+    </div>
+</div>
+<script src="/js/script.js"></script>
+<script>window.onload = admin_layout</script>
+</body>
+</html>

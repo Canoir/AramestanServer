@@ -1,0 +1,115 @@
+@html.extend('admin_layout', function(model) {
+  @html.block('content', function(model) {
+    <style>
+        #ChooseSelect{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #ChooseSelect > li{
+            width: 150px;
+            border: 4px solid #BDBDBD;
+            border-radius: 10px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        #ChooseSelect > li:hover{
+            border: 4px dashed #f34662;
+        }
+        #ChooseSelect > li.select{
+            border: 4px dashed #f34662;
+        }
+    </style>
+      <div class="nevao_card_shadow" style="padding-top:2vw;background:white">
+          <form method="GET" action="/reports/preview">
+          <input type="hidden" id="ChooseSelectInput" name="typeId" value="1"/>
+          <div class="body_login_card_body_inputX_title_parent">
+              <div class="body_login_card_body_inputX_title primary_text_color" style="font-size:18px;margin-bottom:24px;font-weight:bold">نوع گزارش</div>
+          </div>
+          <ul id="ChooseSelect" style="list-style-type: none;">
+              <li title="1">تاریخ دفن</li>
+              <li title="2">تاریخ فوت</li>
+              <li title="3">درامد-تاریخ واریز</li>
+          </ul>
+          <hr style="margin:32px"/>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">تاریخ شروع</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color startDate"
+                                style="text-align:right;color:black;"
+                                     placeholder=".لطفا تاریخ شروع را وارد کنید" type="text"/>
+                                 <input class="startDateAlt" name="startDate" id="startDate" type="hidden" />
+
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">تاریخ پایان</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color endDate" style="text-align:right;color:black;"
+                                placeholder=".لطفا تاریخ پایان را وارد کنید" type="text"/>
+                                 <input class="endDateAlt" name="endDate" id="endDate" type="hidden"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_flex-grow-parent">
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%">
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">سند ۴ برگی</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                style="text-align:right;color:black;"
+                                name="fourPagesCheck"
+                                     type="checkbox"/>
+                            </div>
+                        </div>
+                        <div class="body_login_card_body_input1_parent flex-grow-parent" style="width:50%"> 
+                            <div class="body_login_card_body_inputX_title_parent">
+                                <div class="body_login_card_body_inputX_title primary_text_color">خارج از ارامستان؟</div>
+                            </div>
+                            <div class="body_login_card_body_inputX_input_parent flex-grow-parent">
+                                <input class="body_login_card_body_inputX_input default_border secondary_text_color"
+                                style="text-align:right;color:black;"
+                                name="outOfMalayer"
+                                     type="checkbox"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="edit_profile_form_submit" class="body_login_card_body_button1_parent flex-grow-parent" style="margin-top:1vw;width:20%;display:inline-block">
+                        <input class="body_login_card_body_button1 alert_button_color nevao_card_shadow cursor-pointer" style="border: none;margin-top: 16px;margin-bottom:16px;width: 115px;height: 40px !important;" value="گزارش گیری" type="submit"/>
+                    </div>
+          </form>
+      </div>
+      <span id="pageIdentifire" title="reports"></span>
+      <link rel="stylesheet" href="/css/persian-datepicker.min.css"/>
+      <script src="/js/jquery-3.5.1.min.js"></script> 
+      <script src="/js/persian-date.min.js"></script> 
+      <script src="/js/persian-datepicker.min.js"></script>
+      @{model.user.Password = ''}
+      <span id="LoggedOnUser" title="@(JSON.stringify(model.user))"></span>
+      <script type="text/javascript">
+            $(document).ready(function() {
+                $(".startDate").persianDatepicker({
+                        observer: true,
+                        format: 'YYYY/MM/DD',
+                        altField: '.startDateAlt',
+                        autoClose:true,
+                });
+                $(".endDate").persianDatepicker({
+                        observer: true,
+                        format: 'YYYY/MM/DD',
+                        altField: '.endDateAlt',
+                        autoClose:true,
+                });
+            });
+      </script> 
+  })
+})

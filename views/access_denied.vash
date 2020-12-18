@@ -1,0 +1,14 @@
+@html.block('content', function(model) {
+    <html>
+    <head>
+        <meta http-equiv="refresh" content="5;url=/" />
+    </head>
+    <body>
+        <div dir="rtl">
+            <h1>دسترسی محدود است</h1>
+            <h3>کاربری شما اجازه دسترسی به این صفحه را ندارد</h3>
+            <h4>پس از چند لحظه دیگر به صفحه مجاز خود منتقل خواهید شد. درصورت انتقال نیافتن خودکار روی <a href="/"> لینک </a>کلیک کنید</h4>
+        </div>
+    </body>
+    </html>
+})
