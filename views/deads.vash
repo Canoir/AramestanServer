@@ -40,7 +40,7 @@
         <div id="deads_pager_parent">
             <div>
                 <div class="deads_pager_changer_button default_border cursor-pointer" id="nextPage">
-                    <img src="/icons/ic_back_icon.svg" alt="back" style="width:8px; height: 8px;">
+                    <img src="/icons/ic_back_icon.svg" alt="back" style="width:12px; height: 12px;">
                     <p>صفحه بعدی </p>
                 </div>
                 <div id="deads_pager" class="default_border" style="width:auto;padding:8px;font-size:12px">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="deads_pager_changer_button default_border cursor-pointer" id="lastPage">
                     <p style="text-align:right">صفحه قبلی </p>
-                    <img src="/icons/ic_next_icon.svg" alt="back" style="width:7px; height: 7px;">
+                    <img src="/icons/ic_next_icon.svg" alt="back" style="width:12px; height: 12px;">
                 </div>
             </div>
         </div>

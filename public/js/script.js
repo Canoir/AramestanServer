@@ -326,7 +326,7 @@ function deadsPage() {
           "id=" +
           (number - 1);
       else window.location.search = "id=" + (number - 1);
-    }
+    } else alert("صفحه قبلی وجود ندارد");
   };
   document.getElementById("nextPage").onclick = () => {
     const widget = document.getElementById("pager");
@@ -346,7 +346,7 @@ function deadsPage() {
           "id=" +
           (number + 1);
       else window.location.search = "id=" + (number + 1);
-    }
+    } else alert("صفحه بعدی وجود ندارد");
   };
   document.title = "فوتی ها";
   document.querySelector(

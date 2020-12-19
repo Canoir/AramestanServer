@@ -15,16 +15,14 @@ router.get(
     let dead = [];
     let count;
     if (!req.query.id) req.query.id = 1;
-    if (req.query.q) {
+    if (req.query.q || req.query.q2) {
       const searchList = [];
       req.query.q.split(" ").forEach((el) => {
         searchList.push({ FullName: { $regex: el, $options: "i" } });
       });
-      if(req.query.q2){
-        req.query.q2.split(" ").forEach((el) => {
-          searchList.push({ FatherName: { $regex: el, $options: "i" } });
-        });
-      }
+      req.query.q2.split(" ").forEach((el) => {
+        searchList.push({ FatherName: { $regex: el, $options: "i" } });
+      });
       dead = await Dead.find({ $and: searchList })
         .sort({ EditDate: -1 })
         .skip((Number(req.query.id) - 1) * 20)
@@ -43,7 +41,7 @@ router.get(
     res.render("deads", {
       user: res.locals.user,
       Deads: dead,
-      max: Number((count) / 20),
+      max: Number(count / 20).toFixed(0),
       index: req.query.id,
     });
   }
