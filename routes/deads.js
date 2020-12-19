@@ -20,6 +20,11 @@ router.get(
       req.query.q.split(" ").forEach((el) => {
         searchList.push({ FullName: { $regex: el, $options: "i" } });
       });
+      if(req.query.q2){
+        req.query.q2.split(" ").forEach((el) => {
+          searchList.push({ FatherName: { $regex: el, $options: "i" } });
+        });
+      }
       dead = await Dead.find({ $and: searchList })
         .sort({ EditDate: -1 })
         .skip((Number(req.query.id) - 1) * 20)

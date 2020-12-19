@@ -296,10 +296,17 @@ function deadsPage() {
     el.preventDefault();
     const number = document.getElementById("pager").value;
     const urlParams = new URLSearchParams(window.location.search);
-
-    if (urlParams.get("q"))
-      window.location.search = "q=" + urlParams.get("q") + "&" + "id=" + number;
-    else window.location.search = "id=" + number;
+    if (urlParams.get("q") || urlParams.get("q2")) {
+      window.location.search =
+        "q=" +
+        urlParams.get("q") +
+        "&" +
+        "q2=" +
+        urlParams.get("q2") +
+        "&" +
+        "id=" +
+        number;
+    } else window.location.search = "id=" + number;
   };
   document.getElementById("lastPage").onclick = () => {
     const widget = document.getElementById("pager");
@@ -308,9 +315,16 @@ function deadsPage() {
     const urlParams = new URLSearchParams(window.location.search);
 
     if (number - 1 >= min) {
-      if (urlParams.get("q"))
+      if (urlParams.get("q") || urlParams.get("q2"))
         window.location.search =
-          "q=" + urlParams.get("q") + "&" + "id=" + (number - 1);
+          "q=" +
+          urlParams.get("q") +
+          "&" +
+          "q2=" +
+          urlParams.get("q2") +
+          "&" +
+          "id=" +
+          (number - 1);
       else window.location.search = "id=" + (number - 1);
     }
   };
@@ -321,9 +335,16 @@ function deadsPage() {
     const urlParams = new URLSearchParams(window.location.search);
 
     if (number + 1 <= max) {
-      if (urlParams.get("q"))
+      if (urlParams.get("q") || urlParams.get("q2"))
         window.location.search =
-          "q=" + urlParams.get("q") + "&" + "id=" + (number + 1);
+          "q=" +
+          urlParams.get("q") +
+          "&" +
+          "q2=" +
+          urlParams.get("q2") +
+          "&" +
+          "id=" +
+          (number + 1);
       else window.location.search = "id=" + (number + 1);
     }
   };
