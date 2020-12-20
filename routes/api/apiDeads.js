@@ -1,6 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const Deads = require("../../model/Deads");
+const Statement = require("../../model/Statements");
 const router = express.Router();
 
 //Picture Uploading
@@ -94,4 +95,23 @@ router.post("/search", async (req, res) => {
     res.json({ code: 500 });
   }
 });
-module.exports = router;
+//!Socket.io
+function sockets(io) {
+  //Deads Socket
+  io.of("/api/deads/").on("connect", (socket) => {
+    socket.on("getDataFromServer", async (page) => {
+      socket.emit(
+        "sendDataFromServer",
+        await Deads.find({})
+          .sort({ EditDate: -1 })
+          .skip((page - 1) * 20)
+          .limit(20)
+          .select("FullName FatherName ImageName NationalId")
+      );
+    });
+  });
+}
+module.exports = (_io) => {
+  sockets(_io);
+  return router;
+};

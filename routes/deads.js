@@ -99,19 +99,20 @@ router.post(
   //Add Death Post!
   async function (req, res) {
     try {
-      await new Dead({
-        FullName: req.body.fullName,
-        BirthDate: req.body.birthDate,
-        DeathDate: req.body.deathDate,
-        FatherName: req.body.fatherName,
-        StateId: req.body.stateId,
-        Row: req.body.row,
-        GravePlaceId: req.body.graveStateId,
-        DeadTypeId: req.body.deathType,
-        NationalId: req.body.nationalCode,
-        DeathReason: req.body.deathReason,
-        EditDate: new Date(),
-      }).save();
+      if (!(await Dead.findOne({ NationalId: req.body.nationalCode })))
+        await new Dead({
+          FullName: req.body.fullName,
+          BirthDate: req.body.birthDate,
+          DeathDate: req.body.deathDate,
+          FatherName: req.body.fatherName,
+          StateId: req.body.stateId,
+          Row: req.body.row,
+          GravePlaceId: req.body.graveStateId,
+          DeadTypeId: req.body.deathType,
+          NationalId: req.body.nationalCode,
+          DeathReason: req.body.deathReason,
+          EditDate: new Date(),
+        }).save();
       if (req.body.dirType == "0") res.redirect("/deads/");
       else res.redirect("/deads/additional/" + req.body.nationalCode);
     } catch (e) {
@@ -145,6 +146,11 @@ router.post(
       const dead = await Dead.findOne({ NationalId: req.body._id }).select(
         "FullName Row BirthDate DeathDate FatherName StateId GravePlaceId DeadTypeId NationalId DeathReason"
       );
+      if (
+        req.body.nationalCode != "" &&
+        (await Dead.findOne({ NationalId: req.body.nationalCode }))
+      )
+        req.body.nationalCode = dead.NationalId;
       await dead.updateOne({
         FullName: req.body.fullName == "" ? dead.FullName : req.body.fullName,
         BirthDate:

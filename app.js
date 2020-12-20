@@ -5,22 +5,26 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const moment = require("jalali-moment");
 const logger = require("morgan");
+const { Server } = require("socket.io");
 //Db Config
 require("./config/db")();
+//App
+const app = express();
+//Server Config
+const server = require("http").createServer(app);
+const io = new Server(server);
 //Router
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const deadsRouter = require("./routes/deads");
-const apiDeadsRouter = require("./routes/api/apiDeads");
+const apiDeadsRouter = require("./routes/api/apiDeads")(io);
 const statesRouter = require("./routes/states");
 const apiStatesRouter = require("./routes/api/apiStates");
 const deadtypesRouter = require("./routes/deadtype");
 const costsRouter = require("./routes/costs");
 const reportsRouter = require("./routes/reports");
 const statementRouter = require("./routes/statements");
-//App
-const app = express();
-
+const apiStatementRouter = require("./routes/api/apiStatements")(io);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "vash");
@@ -48,6 +52,7 @@ app.use("/deadtypes", deadtypesRouter);
 app.use("/costs", costsRouter);
 app.use("/reports", reportsRouter);
 app.use("/statements", statementRouter);
+app.use("/api/statements", apiStatementRouter);
 //
 
 // catch 404 and forward to error handler
@@ -62,4 +67,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-module.exports = app;
+module.exports = { app: app, server: server };
