@@ -19,7 +19,7 @@
     "morgan": "~1.9.1",
     "multer": "^1.2.0",
     "persian-datepicker": "^1.2.0",
-    "socket.io": "^3.0.4",
+    "socket.io": "~2.3.0",
     "vash": "~0.12.6"
   }
 }

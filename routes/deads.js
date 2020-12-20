@@ -41,7 +41,7 @@ router.get(
     res.render("deads", {
       user: res.locals.user,
       Deads: dead,
-      max: Number(count / 20).toFixed(0),
+      max: Math.ceil(count / 20),
       index: req.query.id,
     });
   }

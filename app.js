@@ -5,14 +5,15 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const moment = require("jalali-moment");
 const logger = require("morgan");
-const { Server } = require("socket.io");
 //Db Config
 require("./config/db")();
 //App
 const app = express();
 //Server Config
 const server = require("http").createServer(app);
-const io = new Server(server);
+const io = require("socket.io")(server, {
+  serveClient: false,
+});
 //Router
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -23,7 +24,7 @@ const apiStatesRouter = require("./routes/api/apiStates");
 const deadtypesRouter = require("./routes/deadtype");
 const costsRouter = require("./routes/costs");
 const reportsRouter = require("./routes/reports");
-const statementRouter = require("./routes/statements");
+const statementRouter = require("./routes/statements")(io);
 const apiStatementRouter = require("./routes/api/apiStatements")(io);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
