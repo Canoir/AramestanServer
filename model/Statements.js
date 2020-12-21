@@ -12,6 +12,10 @@ const Statement = mongoose.model(
       type: Date,
       default: new Date(),
     },
+    FullName: {
+      type: String,
+      default: "",
+    },
     ImageName: {
       type: String,
       default: "",

@@ -53,15 +53,14 @@ function sockets(io) {
     // Add pic for statement
     async (req, res) => {
       try {
-        await Dead.findOneAndUpdate(
-          { NationalId: req.body.nI },
-          { StatementImageName: req.file.filename }
-        );
+        const dead = await Dead.findOne({ NationalId: req.body.nI });
+        await dead.updateOne({ StatementImageName: req.file.filename });
         const state = await Statement.findOne({ NationalId: req.body.nI });
         if (!state)
           await new Statement({
             NationalId: req.body.nI,
             ImageName: req.file.filename,
+            FullName: dead.FullName,
           }).save();
         else await state.updateOne({ ImageName: req.file.filename });
         res.redirect("/statements/add?m=200");

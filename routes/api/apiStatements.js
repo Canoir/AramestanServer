@@ -14,6 +14,7 @@ function sockets(io) {
       socket.emit(
         "sendDataFromServer",
         await Statement.find({})
+          .sort({ Date: -1 })
           .skip((page - 1) * 5)
           .limit(10)
           .select("ImageName")
