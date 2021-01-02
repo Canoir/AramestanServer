@@ -16,6 +16,9 @@ const Statement = mongoose.model(
       type: String,
       default: "",
     },
+    DeathDate: {
+      type: Date,
+    },
     ImageName: {
       type: String,
       default: "",

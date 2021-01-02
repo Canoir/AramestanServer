@@ -61,6 +61,7 @@ function sockets(io) {
             NationalId: req.body.nI,
             ImageName: req.file.filename,
             FullName: dead.FullName,
+            DeathDate: dead.DeathDate,
           }).save();
         else await state.updateOne({ ImageName: req.file.filename });
         res.redirect("/statements/add?m=200");

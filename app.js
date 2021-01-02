@@ -14,6 +14,7 @@ const server = require("http").createServer(app);
 const io = require("socket.io")(server, {
   serveClient: false,
 });
+
 //Router
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
