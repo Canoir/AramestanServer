@@ -19,11 +19,10 @@ function sockets(io = require("socket.io")()) {
       );
     });
     socket.on("searchFilterToServer", async (data) => {
-      data = JSON.parse(data);
       let result;
-      if (data[1] != "null") {
-        console.log(data + " : " + data[1]);
-        const input = data[1].split("/");
+      if (data.date != "null") {
+        console.log(data + " : " + data.date);
+        const input = data.date.split("/");
         const _date = new Date(
           Number(input[0]),
           Number(input[1]),
@@ -34,20 +33,20 @@ function sockets(io = require("socket.io")()) {
         _endDate.setHours(23, 59, 59);
         result = await Statement.find({
           DeathDate: { $gte: _date, $lt: _endDate },
-          FatherName: { $regex: data[0], $options: "i" },
+          FullName: { $regex: data.text, $options: "i" },
         })
           .sort({ Date: -1 })
-          .skip((data[2] - 1) * 5)
+          .skip((data.pager - 1) * 5)
           .limit(5)
-          .select("ImageName");
+          .select("-_id ImageName");
       } else {
         result = await Statement.find({
-          FatherName: { $regex: data[0], $options: "i" },
+          FullName: { $regex: data.text, $options: "i" },
         })
           .sort({ Date: -1 })
-          .skip((data[2] - 1) * 5)
+          .skip((data.pager - 1) * 5)
           .limit(5)
-          .select("ImageName");
+          .select("-_id ImageName");
       }
       socket.emit("max", Math.ceil((await result.length) / 5));
       socket.emit("searchFilterFromServer", await result);

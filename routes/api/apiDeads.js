@@ -1,6 +1,8 @@
 const express = require("express");
 const multer = require("multer");
 const Deads = require("../../model/Deads");
+const State = require("../../model/States");
+const DeadType = require("../../model/DeadTypes");
 const Statement = require("../../model/Statements");
 const router = express.Router();
 
@@ -98,16 +100,86 @@ router.post("/search", async (req, res) => {
 //!Socket.io
 function sockets(io) {
   //Deads Socket
-  io.of("/api/deads/").on("connect", (socket) => {
+  io.of("/api/deads/").on("connect", async (socket) => {
+    socket.emit("max", Math.ceil((await Deads.countDocuments()) / 20));
     socket.on("getDataFromServer", async (page) => {
       socket.emit(
         "sendDataFromServer",
-        await Deads.find({})
+        await Deads.find({ Accepted: true })
           .sort({ EditDate: -1 })
           .skip((page - 1) * 20)
           .limit(20)
-          .select("FullName FatherName ImageName NationalId")
+          .select("-_id FullName FatherName ImageName NationalId")
       );
+    });
+    socket.on("getDeadFromServer", async (nI) => {
+      let data = (
+        await Deads.findOne({
+          NationalId: nI,
+          Accepted: true,
+        }).select(
+          "-_id ImageName FullName FatherName BirthDate DeathDate StateId Row GravePlaceId DeadTypeId Latitiude Longtitude StatementImageName"
+        )
+      )._doc;
+      if (data) {
+        data = {
+          ...data,
+          State: (await State.findOne({ StateId: data.StateId })).Name,
+          DeadType: (
+            await DeadType.findOne({
+              DeadTypeId: data.DeadTypeId,
+            })
+          ).Name,
+          code: 200,
+        };
+        socket.emit("sendDeadFromServer", data);
+      } else socket.emit("sendDeadFromServer", { code: 404 });
+    });
+    socket.on("getDeadTypesFromServer", async () => {
+      socket.emit(
+        "setDeadTypesFromServer",
+        await DeadType.find({}).select("-_id DeadTypeId Name")
+      );
+    });
+    socket.on("searchFilterToServer", async (filter) => {
+      let result;
+      let search = {};
+      if (filter.fullName)
+        search = {
+          ...search,
+          FullName: { $regex: filter.fullName, $options: "i" },
+        };
+
+      if (filter.date) {
+        const input = filter.date.split("/");
+        const _date = new Date(
+          Number(input[0]),
+          Number(input[1]),
+          Number(input[2])
+        );
+        _date.setHours(0, 0, 0);
+        const _endDate = _date;
+        _endDate.setHours(23, 59, 59);
+        search = { ...search, DeathDate: { $gte: _date, $lt: _endDate } };
+      }
+      if (filter.fatherName)
+        search = {
+          ...search,
+          FatherName: { $regex: filter.fatherName, $options: "i" },
+        };
+      if (filter.deadTypeId == -2)
+        search = {
+          ...search,
+          DeadTypeId: filter.deadTypeId,
+        };
+
+      result = await Deads.find(search)
+        .sort({ EditDate: -1 })
+        .skip((filter.page - 1) * 20)
+        .limit(20)
+        .select("-_id FullName FatherName ImageName NationalId");
+      socket.emit("max", Math.ceil((await result.length) / 5));
+      socket.emit("searchFilterFromServer", await result);
     });
   });
 }
